@@ -21,6 +21,10 @@ fun getCurrentProcessName(applicationContext: Application): String {
 }
 
 fun getFlagResId(country:String) = when(country){
+    "United Kingdom"->R.drawable.flag_uk
+    "United States"->R.drawable.flag_usa
+    "Japan"->R.drawable.flag_japan
+    "Canada"->R.drawable.flag_canada
     else-> R.drawable.flag_default
 }
 
