@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginLeft="28dp"
+    android:layout_marginRight="28dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/bg_server_item">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_server_flag"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/flag_default" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_server_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp" />
+</androidx.appcompat.widget.LinearLayoutCompat>

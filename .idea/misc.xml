@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/bg_96eafe_12dp.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/bg_96eafe_8dp.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/bg_home_server_flag.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/bg_server_item.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/drawer_bg.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/progress_main.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21829710144927536" />
+        <entry key="app/src/main/res/layout/layout_home0810.xml" value="0.21829710144927536" />
+        <entry key="app/src/main/res/layout/layout_result0810.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_server0810.xml" value="0.21829710144927536" />
+        <entry key="app/src/main/res/layout/layout_server_item0810.xml" value="0.21829710144927536" />
+        <entry key="app/src/main/res/layout/layout_web0810.xml" value="0.21829710144927536" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
