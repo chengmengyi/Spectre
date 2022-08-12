@@ -2,13 +2,15 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.demo.spectre"
+        applicationId "com.spectre.unlimited.connection.wifisecure"
         minSdk 23
         targetSdk 31
         versionCode 1
@@ -49,4 +51,8 @@ dependencies {
     implementation project(':core')
     implementation("com.tencent:mmkv:1.2.13")
     implementation("com.blankj:utilcodex:1.31.0")
+    implementation platform('com.google.firebase:firebase-bom:29.3.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.facebook.android:facebook-android-sdk:12.3.0'
 }
