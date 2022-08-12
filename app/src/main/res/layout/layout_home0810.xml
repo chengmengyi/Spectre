@@ -84,7 +84,7 @@
             android:layout_marginRight="12dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/bg_96eafe_8dp"
-            app:layout_constraintBottom_toTopOf="@id/native_ad_view"/>
+            app:layout_constraintBottom_toTopOf="@id/bottom"/>
         <View
             android:id="@+id/view_flag_bg"
             android:layout_width="64dp"
@@ -127,11 +127,12 @@
             app:layout_constraintLeft_toLeftOf="@id/view_choose_server"
             app:layout_constraintBottom_toBottomOf="@id/view_choose_server"
             />
-        <View
-            android:id="@+id/native_ad_view"
+        <include
+            android:id="@+id/bottom"
             android:layout_width="match_parent"
             android:layout_height="152dp"
             android:layout_margin="12dp"
+            layout="@layout/layout_home_ad"
             app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout

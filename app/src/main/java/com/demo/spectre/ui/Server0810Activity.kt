@@ -5,14 +5,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.demo.spectre.R
 import com.demo.spectre.adapter.Server0810Adapter
 import com.demo.spectre.bean0810.Server0810Bean
+import com.demo.spectre.loadad.PrepareLoadAd
 import com.demo.spectre.manager.ConnectManager
+import com.demo.spectre.showad.ShowFullScreenAd
 import kotlinx.android.synthetic.main.layout_server0810.*
 
 class Server0810Activity:AbsBaseActivity() {
+    private val back by lazy { ShowFullScreenAd(this,"sp_back"){ finish() } }
+
     override fun layoutId(): Int = R.layout.layout_server0810
 
     override fun initView() {
         immersionBar?.statusBarView(status_view)?.init()
+        PrepareLoadAd.preLoadAd("sp_back")
 
         recycler_view.apply {
             layoutManager=LinearLayoutManager(this@Server0810Activity)
@@ -20,7 +25,7 @@ class Server0810Activity:AbsBaseActivity() {
                 click(it)
             }
         }
-        iv_back.setOnClickListener { finish() }
+        iv_back.setOnClickListener { onBackPressed() }
     }
 
     private fun click(bean:Server0810Bean){
@@ -47,6 +52,14 @@ class Server0810Activity:AbsBaseActivity() {
         val intent = Intent()
         intent.putExtra("action",action)
         setResult(810,intent)
+        finish()
+    }
+
+    override fun onBackPressed() {
+        if (back.hasAdData()){
+            back.show()
+            return
+        }
         finish()
     }
 }

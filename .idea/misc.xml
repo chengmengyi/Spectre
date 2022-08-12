@@ -5,13 +5,18 @@
       <map>
         <entry key="app/src/main/res/drawable/bg_96eafe_12dp.xml" value="0.29384615384615387" />
         <entry key="app/src/main/res/drawable/bg_96eafe_8dp.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/bg_home_ad.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/bg_home_ad_btn.xml" value="0.29384615384615387" />
         <entry key="app/src/main/res/drawable/bg_home_server_flag.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/bg_result_ad.xml" value="0.29384615384615387" />
         <entry key="app/src/main/res/drawable/bg_server_item.xml" value="0.29384615384615387" />
         <entry key="app/src/main/res/drawable/drawer_bg.xml" value="0.29384615384615387" />
         <entry key="app/src/main/res/drawable/progress_main.xml" value="0.29384615384615387" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21829710144927536" />
         <entry key="app/src/main/res/layout/layout_home0810.xml" value="0.21829710144927536" />
+        <entry key="app/src/main/res/layout/layout_home_ad.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/layout_result0810.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_result_ad.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/layout_server0810.xml" value="0.21829710144927536" />
         <entry key="app/src/main/res/layout/layout_server_item0810.xml" value="0.21829710144927536" />
         <entry key="app/src/main/res/layout/layout_web0810.xml" value="0.21829710144927536" />

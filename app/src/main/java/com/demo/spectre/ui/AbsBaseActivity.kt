@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.gyf.immersionbar.ImmersionBar
 
 abstract class AbsBaseActivity :AppCompatActivity(){
+    var resume0810=false
     protected var immersionBar:ImmersionBar?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -108,5 +109,20 @@ abstract class AbsBaseActivity :AppCompatActivity(){
             return 1
         }
         return 1
+    }
+
+    override fun onResume() {
+        super.onResume()
+        resume0810=true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        resume0810=false
+    }
+
+    override fun onStop() {
+        super.onStop()
+        resume0810=false
     }
 }

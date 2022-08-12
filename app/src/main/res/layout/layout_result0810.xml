@@ -80,4 +80,11 @@
         app:layout_constraintLeft_toLeftOf="@id/iv_result_bg"
         app:layout_constraintRight_toRightOf="@id/iv_result_bg"
         app:layout_constraintTop_toBottomOf="@id/tv_connect_time" />
+    <include layout="@layout/layout_result_ad"
+        android:layout_width="match_parent"
+        android:layout_height="328dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintTop_toBottomOf="@id/iv_result_bg"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

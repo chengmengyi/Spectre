@@ -25,4 +25,118 @@ object InfoConfig {
       }
    ]
 }"""
+
+    const val CITY_0810="""{
+   "sp_city_0810":[
+      "London",
+      "New York1",
+      "Ashburn",
+      "New York2",
+      "Tokyo",
+      "Toronto"
+   ]
+}"""
+
+    const val AD_0810="""{
+    "sp_open": [
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/3419835294x",
+            "sp_type": "chaping",
+            "sp_sort": 1
+        },
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/3419835294AA",
+            "sp_type": "kaiping",
+            "sp_sort": 2
+        },
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/3419835294",
+            "sp_type": "kaiping",
+            "sp_sort": 3
+        }
+    ],
+    "sp_home": [
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/2247696110",
+            "sp_type": "yuansheng",
+            "sp_sort": 2
+        },
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/2247696110",
+            "sp_type": "yuansheng",
+            "sp_sort": 1
+        },
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/2247696110AA",
+            "sp_type": "yuansheng",
+            "sp_sort": 3
+        }
+    ],
+    "sp_result": [
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/2247696110",
+            "sp_type": "yuansheng",
+            "sp_sort": 2
+        },
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/2247696110",
+            "sp_type": "yuansheng",
+            "sp_sort": 1
+        },
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/2247696110AA",
+            "sp_type": "yuansheng",
+            "sp_sort": 3
+        }
+    ],
+    "sp_connect": [
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/8691691433x",
+            "sp_type": "chaping",
+            "sp_sort": 2
+        },
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/1033173712AA",
+            "sp_type": "chaping",
+            "sp_sort": 1
+        },
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/1033173712",
+            "sp_type": "chaping",
+            "sp_sort": 3
+        }
+    ],
+    "sp_back": [
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/1033173712",
+            "sp_type": "chaping",
+            "sp_sort": 2
+        },
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/8691691433aa",
+            "sp_type": "chaping",
+            "sp_sort": 1
+        },
+        {
+            "sp_source": "admob",
+            "sp_id": "ca-app-pub-3940256099942544/1033173712",
+            "sp_type": "chaping",
+            "sp_sort": 3
+        }
+    ]
+}"""
 }

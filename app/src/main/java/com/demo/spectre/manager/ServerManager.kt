@@ -17,7 +17,12 @@ object ServerManager {
         }
     }
 
-    fun getServerList()= localServerList
+    fun getServerList():ArrayList<Server0810Bean>{
+        if (ReadFirebaseConfigManager.configServerList.isEmpty()){
+            return localServerList
+        }
+        return ReadFirebaseConfigManager.configServerList
+    }
 
     fun createFastServer()= Server0810Bean(country_0810_bean = "Faster server")
 
@@ -33,14 +38,14 @@ object ServerManager {
     }
 
     fun getFastServer():Server0810Bean?{
-//        val serverList = getServerList()
-//        if (!ReadConfigHelper.configCity.isNullOrEmpty()){
-//            val filter = serverList.filter { ReadConfigHelper.configCity.contains(it.city_ent) }
-//            if (!filter.isNullOrEmpty()){
-//                return filter.randomOrNull()
-//            }
-//        }
-        return getServerList().randomOrNull()
+        val serverList = getServerList()
+        if (!ReadFirebaseConfigManager.configCityList.isNullOrEmpty()){
+            val filter = serverList.filter { ReadFirebaseConfigManager.configCityList.contains(it.city_0810_bean) }
+            if (!filter.isNullOrEmpty()){
+                return filter.randomOrNull()
+            }
+        }
+        return serverList.randomOrNull()
     }
 
     fun write(server0810Bean: Server0810Bean){

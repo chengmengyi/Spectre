@@ -3,10 +3,10 @@ package com.demo.spectre.util
 import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.demo.spectre.R
-
 
 fun getCurrentProcessName(applicationContext: Application): String {
     val pid = android.os.Process.myPid()
@@ -30,5 +30,9 @@ fun getFlagResId(country:String) = when(country){
 
 fun View.showView(show:Boolean){
     visibility=if (show) View.VISIBLE else View.GONE
+}
+
+fun printLog(string: String){
+    Log.e("qwer",string)
 }
 

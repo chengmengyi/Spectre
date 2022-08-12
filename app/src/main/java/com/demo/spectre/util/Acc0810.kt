@@ -5,8 +5,10 @@ import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import com.blankj.utilcode.util.ActivityUtils
+import com.demo.spectre.loadad.PrepareLoadAd
 import com.demo.spectre.ui.Home0810Activity
 import com.demo.spectre.ui.Main0810Activity
+import com.google.android.gms.ads.AdActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -54,9 +56,9 @@ object Acc0810 {
                 job= GlobalScope.launch {
                     delay(3000L)
                     reload=true
-//                    LoadAdHelper.isShowingFullAd=false
-//                    ActivityUtils.finishActivity(MainPage::class.java)
-//                    ActivityUtils.finishActivity(AdActivity::class.java)
+                    PrepareLoadAd.isShowingFullScreenAd=false
+                    ActivityUtils.finishActivity(Main0810Activity::class.java)
+                    ActivityUtils.finishActivity(AdActivity::class.java)
                 }
             }
         }

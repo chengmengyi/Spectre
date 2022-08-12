@@ -49,4 +49,7 @@ dependencies {
     implementation project(':core')
     implementation("com.tencent:mmkv:1.2.13")
     implementation("com.blankj:utilcodex:1.31.0")
+    implementation("com.google.firebase:firebase-config-ktx")
+    implementation(platform("com.google.firebase:firebase-bom:29.3.1"))
+    implementation("com.google.android.gms:play-services-ads:20.6.0")
 }

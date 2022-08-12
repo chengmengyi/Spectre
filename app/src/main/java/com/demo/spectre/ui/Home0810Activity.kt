@@ -7,8 +7,11 @@ import android.util.Log
 import android.view.Gravity
 import android.view.animation.LinearInterpolator
 import com.demo.spectre.R
+import com.demo.spectre.loadad.PrepareLoadAd
 import com.demo.spectre.manager.ConnectManager
 import com.demo.spectre.manager.ConnectTimeManager
+import com.demo.spectre.showad.LoopGetNativeAd
+import com.demo.spectre.showad.ShowFullScreenAd
 import com.demo.spectre.util.Acc0810
 import com.demo.spectre.util.getFlagResId
 import com.demo.spectre.util.showView
@@ -19,8 +22,12 @@ import kotlinx.android.synthetic.main.layout_home0810.*
 class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallback,
     ConnectManager.IConnectedCallback {
     private var click=true
+    private var connect=false
     private var havePermission = false
     private var valueAnimator:ValueAnimator?=null
+    private val connectFullScreen by lazy { ShowFullScreenAd(this,"sp_connect"){ jumpResult() } }
+    private val nativeAd by lazy { LoopGetNativeAd(this,"sp_home") }
+
 
     private val launcher = registerForActivityResult(StartService()) {
         if (!it && havePermission) {
@@ -31,7 +38,6 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
             toast("Connected fail")
         }
     }
-
 
     override fun layoutId(): Int = R.layout.layout_home0810
 
@@ -83,6 +89,8 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
 
     private fun preCall(connected:Boolean=ConnectManager.connectSuccess()){
         click=false
+        PrepareLoadAd.preLoadAd("sp_result")
+        PrepareLoadAd.preLoadAd("sp_connect")
         if (connected){
             startDisconnect()
         }else{
@@ -113,6 +121,7 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
     }
 
     private fun checkAdmobResult(connect: Boolean){
+        this.connect=connect
         valueAnimator = ValueAnimator.ofInt(0, 100).apply {
             duration=10000L
             interpolator = LinearInterpolator()
@@ -120,20 +129,21 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
                 val pro = it.animatedValue as Int
                 val duration = (10 * (pro / 100.0F)).toInt()
                 if (duration in 2..9){
-                    if (ConnectManager.isSuccess(connect)){
+                    if (ConnectManager.isSuccess(connect)&&connectFullScreen.hasAdData()){
                         stopValueAnimator()
-                        result(connect)
+                        result(intentToResult = false)
+                        connectFullScreen.show()
                     }
                 }else if (duration>=10){
                     stopValueAnimator()
-                    result(connect)
+                    result()
                 }
             }
             start()
         }
     }
 
-    private fun result(connect: Boolean,intentToResult:Boolean=true){
+    private fun result(intentToResult:Boolean=true){
         if (ConnectManager.isSuccess(connect)){
             if (connect){
                 refreshUI(BaseService.State.Connected)
@@ -142,7 +152,7 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
                 refreshConnectedFlag()
             }
             if (intentToResult){
-                jumpResult(connect)
+                jumpResult()
             }
             click=true
         }else{
@@ -156,7 +166,7 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
         iv_server_flag.setImageResource(getFlagResId(ConnectManager.current.country_0810_bean))
     }
 
-    private fun jumpResult(connect:Boolean){
+    private fun jumpResult(){
         if (Acc0810.isFront){
             val intent = Intent(this, Result0810Activity::class.java)
             intent.putExtra("connect",connect)
@@ -222,10 +232,18 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (Acc0810.refreshHomeNativeAd){
+            nativeAd.loopGetNativeAd()
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         ConnectManager.onDestroy()
         stopValueAnimator()
         ConnectTimeManager.removeCallback(this)
+        nativeAd.cancelJob()
     }
 }
