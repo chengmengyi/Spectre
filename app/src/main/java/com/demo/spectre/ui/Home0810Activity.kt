@@ -2,6 +2,7 @@ package com.demo.spectre.ui
 
 import android.animation.ValueAnimator
 import android.content.Intent
+import android.net.Uri
 import android.net.VpnService
 import android.util.Log
 import android.view.Gravity
@@ -13,6 +14,7 @@ import com.demo.spectre.manager.ConnectTimeManager
 import com.demo.spectre.showad.LoopGetNativeAd
 import com.demo.spectre.showad.ShowFullScreenAd
 import com.demo.spectre.util.Acc0810
+import com.demo.spectre.util.InfoConfig
 import com.demo.spectre.util.getFlagResId
 import com.demo.spectre.util.showView
 import com.github.shadowsocks.bg.BaseService
@@ -83,6 +85,18 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
         tv_privacy.setOnClickListener {
             if (drawerLayout.isOpen){
                 startActivity(Intent(this,Web0810Activity::class.java))
+            }
+        }
+        tv_contact.setOnClickListener {
+            if (drawerLayout.isOpen){
+                try {
+                    val intent = Intent(Intent.ACTION_SENDTO)
+                    intent.data= Uri.parse("mailto:")
+                    intent.putExtra(Intent.EXTRA_EMAIL,InfoConfig.Email)
+                    startActivity(intent)
+                }catch (e:Exception){
+                    toast("Contact us by email：${InfoConfig.Email}")
+                }
             }
         }
     }
