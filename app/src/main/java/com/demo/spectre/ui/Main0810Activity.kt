@@ -42,6 +42,7 @@ class Main0810Activity : AbsBaseActivity() {
                     if (fullScreen.hasAdData()){
                         stopAnimator()
                         progress_bar.progress = 100
+                        tv_progress.text="100%"
                         fullScreen.show()
                     }
                 }else if (duration>=10){

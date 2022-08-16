@@ -22,6 +22,7 @@ class Result0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallb
         iv_server_flag.setImageResource(getFlagResId(ConnectManager.last.country_0810_bean))
         val connect = intent.getBooleanExtra("connect", false)
         tv_connect_status.text=if (connect) "Connected succeeded" else "Disconnected succeeded"
+        tv_connect_time.isSelected=connect
         if (connect){
             ConnectTimeManager.addCallback(this)
         }else{

@@ -1,6 +1,7 @@
 package com.demo.spectre.manager
 
 import com.demo.spectre.ui.AbsBaseActivity
+import com.demo.spectre.util.printLog
 import com.github.shadowsocks.Core
 import com.github.shadowsocks.aidl.IShadowsocksService
 import com.github.shadowsocks.aidl.ShadowsocksConnection
@@ -56,11 +57,13 @@ object ConnectManager:ShadowsocksConnection.Callback {
     }
 
     override fun stateChanged(state: BaseService.State, profileName: String?, msg: String?) {
+        printLog("=stateChanged=${state}==")
         changeState(state)
     }
 
     override fun onServiceConnected(service: IShadowsocksService) {
         val state = BaseService.State.values()[service.state]
+        printLog("=onServiceConnected=${state}==")
         changeState(state)
         if (connectSuccess()){
             iConnectedCallback?.connectedCallback()

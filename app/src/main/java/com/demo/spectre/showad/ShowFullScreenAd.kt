@@ -7,6 +7,10 @@ import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.appopen.AppOpenAd
 import com.google.android.gms.ads.interstitial.InterstitialAd
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class ShowFullScreenAd(
     private val context:AbsBaseActivity,
@@ -45,7 +49,7 @@ class ShowFullScreenAd(
             if (type=="sp_connect"){
                 PrepareLoadAd.preLoadAd(type)
             }
-            onShowFinish.invoke()
+            delayCallback()
         }
 
         override fun onAdShowedFullScreenContent() {
@@ -58,7 +62,16 @@ class ShowFullScreenAd(
             super.onAdFailedToShowFullScreenContent(p0)
             PrepareLoadAd.isShowingFullScreenAd=false
             PrepareLoadAd.clearAdCache(type)
-            onShowFinish.invoke()
+            delayCallback()
+        }
+    }
+
+    private fun delayCallback(){
+        GlobalScope.launch(Dispatchers.Main) {
+            delay(200L)
+            if (context.resume0810){
+                onShowFinish.invoke()
+            }
         }
     }
 }

@@ -13,10 +13,7 @@ import com.demo.spectre.manager.ConnectManager
 import com.demo.spectre.manager.ConnectTimeManager
 import com.demo.spectre.showad.LoopGetNativeAd
 import com.demo.spectre.showad.ShowFullScreenAd
-import com.demo.spectre.util.Acc0810
-import com.demo.spectre.util.InfoConfig
-import com.demo.spectre.util.getFlagResId
-import com.demo.spectre.util.showView
+import com.demo.spectre.util.*
 import com.github.shadowsocks.bg.BaseService
 import com.github.shadowsocks.utils.StartService
 import kotlinx.android.synthetic.main.layout_home0810.*
@@ -98,6 +95,9 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
                     toast("Contact us by email：${InfoConfig.Email}")
                 }
             }
+        }
+        center_click_view.setOnClickListener {
+            view_connect.performClick()
         }
     }
 
@@ -196,6 +196,7 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
                 iv_connect_idle.showView(true)
                 refreshConnectText("Connect")
                 tv_connect_time.text="00:00:00"
+                iv_connect_idle.setImageResource(R.drawable.connect_default_img)
                 ConnectTimeManager.stopCountTime()
             }
             BaseService.State.Connecting,BaseService.State.Stopping-> {
@@ -206,8 +207,9 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
             BaseService.State.Connected-> {
                 connecting_lottie_view.showView(false)
                 iv_connect_idle.showView(true)
-                refreshConnectText("Connected")
+                refreshConnectText("Disconnect")
                 ConnectTimeManager.startCountTime()
+                iv_connect_idle.setImageResource(R.drawable.connected_img)
             }
         }
     }
@@ -258,6 +260,7 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
         ConnectManager.onDestroy()
         stopValueAnimator()
         ConnectTimeManager.removeCallback(this)
+        Acc0810.refreshHomeNativeAd=true
         nativeAd.cancelJob()
     }
 }

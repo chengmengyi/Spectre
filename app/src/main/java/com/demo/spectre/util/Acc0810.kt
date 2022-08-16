@@ -52,7 +52,7 @@ object Acc0810 {
         override fun onActivityStopped(activity: Activity) {
             num--
             if (num<=0){
-                isFront=true
+                isFront=false
                 job= GlobalScope.launch {
                     delay(3000L)
                     reload=true

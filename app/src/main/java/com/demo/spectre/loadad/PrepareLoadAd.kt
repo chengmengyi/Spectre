@@ -9,6 +9,7 @@ object PrepareLoadAd:AbsLoadAd() {
     var isShowingFullScreenAd=false
 
     fun preLoadAd(type:String,loadOpenAgain:Boolean=true){
+
         if (isLoadingAd(type)||hasCache(type)){
             return
         }
