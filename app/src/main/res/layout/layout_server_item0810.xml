@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_layout"
     android:layout_width="match_parent"
     android:layout_height="55dp"
     android:layout_marginTop="12dp"
     android:layout_marginLeft="28dp"
     android:layout_marginRight="28dp"
     android:gravity="center_vertical"
-    android:background="@drawable/bg_server_item">
+    android:background="@drawable/bg_server_selector">
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_server_flag"
         android:layout_width="30dp"

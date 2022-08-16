@@ -7,15 +7,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.demo.spectre.R
 import com.demo.spectre.bean0810.Server0810Bean
+import com.demo.spectre.manager.ConnectManager
 import com.demo.spectre.manager.ServerManager
 import com.demo.spectre.util.getFlagResId
 import kotlinx.android.synthetic.main.layout_server_item0810.view.*
 
-class Server0810Adapter(
-    private val context: Context,
-    private val click:(bean:Server0810Bean)->Unit
-):RecyclerView.Adapter<Server0810Adapter.MyView>() {
+class Server0810Adapter(private val context: Context):RecyclerView.Adapter<Server0810Adapter.MyView>() {
     private val list= arrayListOf<Server0810Bean>()
+    private var chooseServer=ConnectManager.current
+
+    fun getChooseServer()=chooseServer
+
     init {
         list.add(ServerManager.createFastServer())
         list.addAll(ServerManager.getServerList())
@@ -23,7 +25,10 @@ class Server0810Adapter(
 
     inner class MyView(view:View):RecyclerView.ViewHolder(view){
         init {
-            view.setOnClickListener { click.invoke(list[layoutPosition]) }
+            view.setOnClickListener {
+                chooseServer=list[layoutPosition]
+                notifyDataSetChanged()
+            }
         }
     }
 
@@ -33,6 +38,7 @@ class Server0810Adapter(
     override fun onBindViewHolder(holder: MyView, position: Int) {
         val server0810Bean = list[position]
         with(holder.itemView){
+            item_layout.isSelected=server0810Bean.host_0810_bean==chooseServer.host_0810_bean
             tv_server_name.text=server0810Bean.country_0810_bean
             iv_server_flag.setImageResource(getFlagResId(server0810Bean.country_0810_bean))
         }

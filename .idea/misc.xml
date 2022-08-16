@@ -10,6 +10,8 @@
         <entry key="app/src/main/res/drawable/bg_home_server_flag.xml" value="0.29384615384615387" />
         <entry key="app/src/main/res/drawable/bg_result_ad.xml" value="0.29384615384615387" />
         <entry key="app/src/main/res/drawable/bg_server_item.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/bg_server_selected.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/bg_server_selector.xml" value="0.29384615384615387" />
         <entry key="app/src/main/res/drawable/drawer_bg.xml" value="0.29384615384615387" />
         <entry key="app/src/main/res/drawable/progress_main.xml" value="0.29384615384615387" />
         <entry key="app/src/main/res/drawable/result_text_selector.xml" value="0.29384615384615387" />

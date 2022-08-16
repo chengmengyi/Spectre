@@ -7,6 +7,7 @@ import android.net.VpnService
 import android.util.Log
 import android.view.Gravity
 import android.view.animation.LinearInterpolator
+import com.blankj.utilcode.util.ActivityUtils
 import com.demo.spectre.R
 import com.demo.spectre.loadad.PrepareLoadAd
 import com.demo.spectre.manager.ConnectManager
@@ -233,6 +234,12 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
         refreshConnectedFlag()
     }
 
+    override fun stoppedCallback() {
+        if (click){
+            refreshUI(BaseService.State.Stopped)
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode==810){
@@ -262,5 +269,6 @@ class Home0810Activity:AbsBaseActivity(), ConnectTimeManager.IConnectTimeCallbac
         ConnectTimeManager.removeCallback(this)
         Acc0810.refreshHomeNativeAd=true
         nativeAd.cancelJob()
+        ConnectManager.removeIConnectedCallback(this)
     }
 }

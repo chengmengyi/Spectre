@@ -16,10 +16,14 @@ object ConnectManager:ShadowsocksConnection.Callback {
     var last=ServerManager.createFastServer()
     private var state=BaseService.State.Idle
     private val sc=ShadowsocksConnection(true)
-    private var iConnectedCallback:IConnectedCallback?=null
+    private val callbackList= arrayListOf<IConnectedCallback>()
 
     fun setIConnectedCallback(iConnectedCallback:IConnectedCallback){
-        this.iConnectedCallback=iConnectedCallback
+        callbackList.add(iConnectedCallback)
+    }
+
+    fun removeIConnectedCallback(iConnectedCallback:IConnectedCallback){
+        callbackList.remove(iConnectedCallback)
     }
 
     fun connectSuccess()= state==BaseService.State.Connected
@@ -57,16 +61,21 @@ object ConnectManager:ShadowsocksConnection.Callback {
     }
 
     override fun stateChanged(state: BaseService.State, profileName: String?, msg: String?) {
-        printLog("=stateChanged=${state}==")
         changeState(state)
+        if (disconnectSuccess()){
+            callbackList.forEach {
+                it.stoppedCallback()
+            }
+        }
     }
 
     override fun onServiceConnected(service: IShadowsocksService) {
         val state = BaseService.State.values()[service.state]
-        printLog("=onServiceConnected=${state}==")
         changeState(state)
         if (connectSuccess()){
-            iConnectedCallback?.connectedCallback()
+            callbackList.forEach {
+                it.connectedCallback()
+            }
         }
     }
 
@@ -90,5 +99,6 @@ object ConnectManager:ShadowsocksConnection.Callback {
 
     interface IConnectedCallback{
         fun connectedCallback()
+        fun stoppedCallback()
     }
 }

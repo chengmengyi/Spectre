@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.layout_server0810.*
 
 class Server0810Activity:AbsBaseActivity() {
     private val back by lazy { ShowFullScreenAd(this,"sp_back"){ finish() } }
+    private val myAdapter by lazy { Server0810Adapter(this@Server0810Activity) }
 
     override fun layoutId(): Int = R.layout.layout_server0810
 
@@ -21,11 +22,12 @@ class Server0810Activity:AbsBaseActivity() {
 
         recycler_view.apply {
             layoutManager=LinearLayoutManager(this@Server0810Activity)
-            adapter=Server0810Adapter(this@Server0810Activity){
-                click(it)
-            }
+            adapter=myAdapter
         }
         iv_back.setOnClickListener { onBackPressed() }
+        iv_connect_btn.setOnClickListener {
+            click(myAdapter.getChooseServer())
+        }
     }
 
     private fun click(bean:Server0810Bean){
