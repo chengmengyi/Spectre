@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "727446078945",
+    "project_id": "spectre-fc85c",
+    "storage_bucket": "spectre-fc85c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727446078945:android:f8a631336eab984e8a7ea0",
+        "android_client_info": {
+          "package_name": "com.spectre.unlimited.connection.wifisecure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727446078945-947mij8k6kjru11ktdrce33viohfnqid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvQgcNOXUHlNubYShKr_hNxsEKYwcb2bI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727446078945-947mij8k6kjru11ktdrce33viohfnqid.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

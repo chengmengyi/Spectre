@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.demo.spectre">
+    package="com.spectre.unlimited.connection.wifisecure">
 
     <application
-        android:name=".Spectre"
+        android:name="com.spectre.unlimited.connection.wifisecure.Spectre"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Spectre">
         <activity
-            android:name=".ui.Main0810Activity"
+            android:name="com.spectre.unlimited.connection.wifisecure.ui.Main0810Activity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -20,16 +20,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.Home0810Activity"
+        <activity android:name="com.spectre.unlimited.connection.wifisecure.ui.Home0810Activity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.Result0810Activity"
+        <activity android:name="com.spectre.unlimited.connection.wifisecure.ui.Result0810Activity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.Server0810Activity"
+        <activity android:name="com.spectre.unlimited.connection.wifisecure.ui.Server0810Activity"
             android:screenOrientation="portrait"/>
+        <activity android:name="com.spectre.unlimited.connection.wifisecure.ui.Web0810Activity"
+            android:screenOrientation="portrait"/>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_id" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
     </application>
 
 </manifest>
